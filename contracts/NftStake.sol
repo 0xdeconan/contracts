@@ -181,5 +181,8 @@ contract NftStake is IERC721Receiver, ReentrancyGuard {
         return this.onERC721Received.selector;
     }
 
+    function getReceipt(uint256 tokenId) public view returns (uint256, address) {
+        return (receipt[tokenId].from, receipt[tokenId].owner)
+    }
     /** Add Function to allow the DAO to forcibly unstake an NFT and return it to the owner */
 }
